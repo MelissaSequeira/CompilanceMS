@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\loandreg.css">
+    <title>Registration</title>
+</head>
+<body>
+    <div id="regsec">
+        <div id="add_task">
+            <div class="add_box">
+                <!-- Modify the form action and method -->
+                <h2>Registration</h2>
+                {% if error %}
+                <p>{{ error }}</p>
+                {% endif %}
+                <form action="/register" method="post">
+                    <label class="addtext" for="rusername">Username:</label><br>
+                    <input type="text" class="boxes" id="rusername" name="rusername" placeholder="Enter username" required><br>
+                    <label class="addtext" for="rpassword">Password:</label><br>
+                    <input type="password" class="boxes" id="rpassword" name="rpassword" placeholder="Enter password" required><br>
+                    <label class="addtext" for="remail">Email:</label><br>
+                    <input type="email" class="boxes" id="remail" name="remail" placeholder="Enter email" required><br><br>
+                    <div class="submit-wrapper"><button type="submit" class="submit-btn">Register</button></div>
+                </form>
+                <p>Already registered? <a href="/login">Login here</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>CMS model</title>
+</head>
+<body>
+    <div id="home_section">
+        <div class="navbar">
+            <div class="logo">CMS</div>
+            <div class="a_links">
+                <div><a href="#home_section">Home</a></div>
+                <div><a href="#dashboard_section">Dashboard</a></div>
+                <div><a href="#add_task">Add Task</a></div>
+                <div><a href="#checklist">Checklist</a></div>
+                <div><a href="#complaints">Complaints</a></div>
+                <div><a href="{{ url_for('logout') }}">Logout</a></div>
+                
+            </div>
+        </div>
+        <div class="home_contents">
+            <div class="home_title">Welcome To Our Compliance Support System.</div>
+            <div class="home_abt">Welcome to Our Compliance Support System, experts in compliance support. With tailored solutions and personalized service, we help businesses navigate regulations seamlessly. From assessments to training, we ensure compliance is an opportunity for growth. Let us be your partner in achieving and maintaining compliance excellence. Contact us today! </div>
+        </div>
+    </div>
+    <div id="dashboard_section">
+        <div class="first-half-dash">
+            <div class="risks">
+                <div class="task-title">Risks Statistics</div>
+                <div id="risk_chart">
+                    <!-- Embed the Base64 encoded image -->
+                    <img src="data:image/png;base64,{{ img_base64 }}" alt="Risk Plot">
+                </div>
+            </div>
+            <div class="updates">
+                <div class="task-title">Updates</div>
+                <div id="pie_chart">
+                    <!-- Embed the Base64 encoded pie chart -->
+                    <img src="data:image/png;base64,{{ pie_img_base64 }}" alt="Pie Chart">
+                </div>
+            </div>
+        </div>
+            
+            <div class="second-half-dash">
+                <div class="task-title">Tasks and Activities</div>
+                <div class="dash-in">
+                    
+                    <table border="0">
+                        {% for task in act %}
+                        <tr><td><div class="added-tasks">{{ task.activity }}</div></td>
+                            <td><form action="{{ url_for('remove_task', task_id=task.id) }}" method="POST">
+                                <button class="remove-btn" type="submit">Remove</button>
+                            </form></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        
+    </div>
+    <div id="add_task">
+        <div class="add_box">
+            <!-- Modify the form action and method -->
+            <form action="/" method="post">
+                <p class="addtext">Activity/task:<input type="text" class="boxes" name="activity" id="activity"></p>
+                <p  class="addtext">Duration:<input type="text" class="boxes"  name="duration" id="duration" placeholder="hours:minutes"></p>
+                <p  class="addtext">Risks:<input type="text" class="boxes"  name="risk" id="risk" placeholder="n%"></p>
+                <div class="submit-wrapper"><button type="submit" class="submit-btn">Submit</button></div>
+                
+            </form>
+        </div>
+        
+                
+
+    </div>
+    <div id="checklist">
+        <table border="1">
+            <tr>
+                <th>Activities / Tasks</th>
+                <th>Duration</th>
+                <th>Risks</th>
+                <th>Action</th>
+            </tr>
+            {% for task in act %}
+            <tr>
+                <!-- Display task activity and duration -->
+                <td><div class="added-tasks">{{ task.activity }}</div></td>
+                <td><div class="added-tasks">{{ task.duration }}</div></td>
+                <td><div class="added-tasks">{{ task.risk }}</div></td>
+                <!-- Forms for removing and updating task -->
+                <td class="chk-btn">
+                    <form action="{{ url_for('remove_task', task_id=task.id) }}" method="POST">
+                        <button class="remove-btn" type="submit">Remove</button>
+                    </form>
+                    <form action="{{ url_for('update_task', task_id=task.id) }}" method="POST">
+                        <button class="remove-btn" type="submit">Update</button>
+                    </form>
+                    
+                    <form action="{{ url_for('toggle_button', task_id=task.id) }}" method="POST">
+                        <button class="remove-btn" type="submit" name="toggle_button">{{ 'undone' if session.get('button_color_' ~ task.id) == 'done' else 'done' }}</button>
+                    </form>
+                    
+                    
+                    
+                    <!-- Buttons for marking task as done or not done -->
+                    
+                </td>
+            </tr> 
+            {% endfor %}
+        </table>
+    </div>
+    <div id="complaints">
+        
+        <div class="comp_form">
+            <div class="addtext">Complaints</div>
+            <form action="/" method="post">
+                <p class="addtext">Your Name:<input type="text" class="boxes" name="comp-name" id="comp-name"></p>
+                <p  class="addtext">Complaint for:<input type="text" class="boxes"  name="comp-part" id="comp-part" placeholder="topic"></p>
+                <p  class="addtext">Issue:<input type="text" class="boxes"  name="comp-reason" id="comp-reason" placeholder="complaint-reason"></p>
+                <div class="submit-wrapper"><button type="submit" class="submit-btn">Submit</button></div>
+                
+            </form>
+        </div>
+    </div>
+    <div id="store-complaints">
+        <div class="c-title">Your Complaints</div>
+        <div class="complaint-box">
+            <table id="complaints-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Complaint Topic</th>
+                        <th>Complaint Issue</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for complaint in complaints %}
+                    <tr>
+                        <td>{{ complaint.username }}</td>
+                        <td>{{ complaint.topic }}</td>
+                        <td>{{ complaint.issue }}</td>
+                        <td>
+                            <form action="{{ url_for('remove_complaint', complaint_id=complaint.id) }}" method="POST">
+                                <button class="remove-btn" type="submit">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <footer>
+        <p class="f1-text">© 2024 A_Compliance_Support_website - All Rights Reserved</p>
+        <p class="f2-text">any queries? contact us: </p>
+        <p class="f2-text">mobile: 12345-67890</p>
+        <p class="f2-text">email: <a>cmsweb123@gmail.com</a></p>
+    </footer>
+</body>
+</html>

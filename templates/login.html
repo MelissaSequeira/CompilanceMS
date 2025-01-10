@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\loandreg.css">
+    <title>Login</title>
+</head>
+<body>
+    <div id="regsec">
+        <div id="add_task">
+            <div class="add_box">
+                <!-- Modify the form action and method -->
+                <h2>Login</h2>
+                {% if error %}
+                <p>{{ error }}</p>
+                {% endif %}
+                <form action="/login" method="post">
+                    <label class="addtext" for="lusername">Username:</label><br>
+                    <input type="text" class="boxes" id="lusername" name="lusername" placeholder="Enter username" required><br>
+                    <label class="addtext" for="lpassword">Password:</label><br>
+                    <input type="password" class="boxes" id="lpassword" name="lpassword" placeholder="Enter password" required><br><br>
+                    <div class="submit-wrapper"><button type="submit" class="submit-btn">Login</button></div>
+                </form>
+                <p>Not registered yet? <a href="/register">Register here</a></p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

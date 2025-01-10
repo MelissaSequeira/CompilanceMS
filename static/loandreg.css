@@ -1,0 +1,70 @@
+*{
+    margin:0;
+}
+body{
+    background-color: rgb(10, 20, 29);
+   
+}
+#regsec ,#loginsec{
+    height :880px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.add_box {
+    height: 600px;
+    width: 500px;
+    background: linear-gradient(rgb(1, 67, 102), rgba(11, 46, 98, 0));
+    color: aliceblue;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+.addtext{
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.boxes{
+    height:40px ;
+    width:400px;
+    margin: 30px;
+}
+.submit-btn{
+    height: 40px;
+    width: 300px;
+    font-size: 30px;
+    font-size: 30px;
+    letter-spacing: 4px;
+    justify-self: center;
+    border-radius: 20px;
+}
+.submit-btn:hover{
+    color:aqua;
+    background-color: rgb(0, 36, 84);
+    transition-duration: 0.5s;
+}
+.submit-wrapper {
+    text-align: center;
+}
+.alreg{
+    margin-top: 30px;
+    text-decoration: none;
+    text-align: center;
+}
+.alreg a{
+    text-decoration: none;
+    color:white;
+}
+.alreg a:hover{
+    color:aqua;
+}
