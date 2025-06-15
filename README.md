@@ -1,22 +1,7 @@
 
 # Compliance Support System (CMS)
 
-A mini project submitted as part of the Bachelor of Engineering in Information Technology at Fr. Conceicao Rodrigues Institute of Technology.
-
-## 🚀 Overview
-
 The **Compliance Support System (CMS)** is a web-based platform built to support the compliance management needs of finance businesses. It enables firms to track, assess, and manage their regulatory responsibilities effectively using a streamlined and user-friendly dashboard.
-
-## 👥 Team Members
-
-- **Anushka Uttam Sarkar** (5022153)  
-- **Melissa Rozario Sequeira** (5022157)  
-- **Mereena Sarah Varghese** (5022165)  
-- **Sukhada Vedang Wadodkar** (5022166)  
-
-**Guide:** Prof. Sharlene Rebeiro
-
----
 
 ## 📌 Features
 
@@ -86,14 +71,27 @@ The **Compliance Support System (CMS)** is a web-based platform built to support
 
 ## 🖥️ GUI Screenshots
 
-- Login Page  
-- Registration Page  
-- Dashboard (Risk Graph + Pie Chart)  
-- Add Task Form  
-- Checklist Interface  
-- Complaint Registration & Viewer
+- Login Page
+- ![image](https://github.com/user-attachments/assets/d3c1399c-dbe4-4924-92c4-4364f00b7685)
 
-> Refer to the GUI section in the report for visuals.
+- Registration Page
+- ![image](https://github.com/user-attachments/assets/35f0c25e-8c3a-4e79-8f10-f62530149b67)
+  
+- Home Page
+- ![image](https://github.com/user-attachments/assets/50ec4828-e11e-42be-bead-dc85cd4d97da)
+
+- Dashboard (Risk Graph + Pie Chart)
+- ![image](https://github.com/user-attachments/assets/ac81ff36-7623-4ffb-bf70-2eeaf3ee497b)
+
+- Add Task Form
+- ![image](https://github.com/user-attachments/assets/355be1cd-6b07-4944-bead-aca7d0146f49)
+
+- Checklist Interface
+- ![image](https://github.com/user-attachments/assets/42c50a64-0ef6-44a5-9ddd-9feec6492480)
+
+- Complaint Registration & Viewer
+- ![image](https://github.com/user-attachments/assets/88c5d8b2-d9fa-40da-807a-f8597aa6eda9)
+- ![image](https://github.com/user-attachments/assets/bdaf7153-777f-489e-996a-b74aeb25b565)
 
 ---
 
